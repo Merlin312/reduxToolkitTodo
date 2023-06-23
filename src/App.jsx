@@ -9,7 +9,7 @@ const App = () => {
   }, 60000);
   return (
     <div className="container">
-      <h1>Todo List</h1>
+      <h1>Todo List!</h1>
       <TodoForm /> {/* Відображає форму для створення нового елемента */}
       <TodoList /> {/* Відображає список елементів */}
     </div>
