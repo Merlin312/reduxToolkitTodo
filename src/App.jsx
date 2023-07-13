@@ -1,7 +1,9 @@
-import React from 'react';
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
-import './style/App.css';
+// import React from 'react';
+// import TodoForm from './components/TodoForm';
+// import TodoList from './components/TodoList';
+// import './style/App.css';
+// import Buttons from './components/Buttons';
+import Practice from './practice/Practice';
 
 const App = () => {
   setInterval(() => {
@@ -9,9 +11,11 @@ const App = () => {
   }, 60000);
   return (
     <div className="container">
-      <h1>Todo List!</h1>
-      <TodoForm /> {/* Відображає форму для створення нового елемента */}
-      <TodoList /> {/* Відображає список елементів */}
+      <Practice />
+      {/* <Buttons />
+      <h1>Todo List! </h1>
+      <TodoForm />
+      <TodoList /> */}
     </div>
   );
 };

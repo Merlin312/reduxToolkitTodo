@@ -8,13 +8,13 @@ const RemoveAll = () => {
     dispatch(removeTodo(todos));
   };
   return (
-    <div>
+    <>
       {todos.length >= 5 ? (
         <button style={{ marginTop: '10px' }} onClick={handleRemoveTodo}>
-          Remove Todo
+          RemoveAllTodo
         </button>
       ) : null}
-    </div>
+    </>
   );
 };
 export default RemoveAll;
