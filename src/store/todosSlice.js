@@ -23,11 +23,15 @@ const todosSlice = createSlice({
       return state.filter((todo) => todo.id !== action.payload); // Фільтрація масиву задач за ідентифікатором і повернення нового масиву без видаленої задачі
     },
     removeTodo: () => [],
+
+    sortTodo: (state) => {
+      state.sort((a, b) => a.text.localeCompare(b.text));
+    },
   },
 });
 
 // Експорт редукторів (actions) з срізу
-export const { addTodo, toggleTodo, deleteTodo, removeTodo } =
+export const { addTodo, toggleTodo, deleteTodo, removeTodo, sortTodo } =
   todosSlice.actions;
 
 // Експорт редуктора (reducer) срізу
