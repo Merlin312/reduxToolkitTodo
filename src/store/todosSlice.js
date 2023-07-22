@@ -27,12 +27,24 @@ const todosSlice = createSlice({
     sortTodo: (state) => {
       state.sort((a, b) => a.text.localeCompare(b.text));
     },
+    upperCase: (state) => {
+      return state.map((a) => ({
+        // ...a,
+        text: a.text.toUpperCase(),
+      }));
+    },
   },
 });
 
 // Експорт редукторів (actions) з срізу
-export const { addTodo, toggleTodo, deleteTodo, removeTodo, sortTodo } =
-  todosSlice.actions;
+export const {
+  addTodo,
+  toggleTodo,
+  deleteTodo,
+  removeTodo,
+  sortTodo,
+  upperCase,
+} = todosSlice.actions;
 
 // Експорт редуктора (reducer) срізу
 export default todosSlice.reducer;
