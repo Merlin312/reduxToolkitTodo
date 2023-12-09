@@ -29,7 +29,7 @@ const todosSlice = createSlice({
     },
     upperCase: (state) => {
       return state.map((a) => ({
-        // ...a,
+        ...a,
         text: a.text.toUpperCase(),
       }));
     },
