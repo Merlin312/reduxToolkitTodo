@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
 
 const PracticeApp = () => {
-  const [todo, setTodo] = useState(['novel', 'code', 'drunk', 'wst']);
+  const [todo, setTodo] = useState([]);
+  const [value, setValue] = useState('');
 
   useEffect(() => {
     const interval1 = setInterval(() => {
       console.clear();
     }, 60000);
-
-    const interval2 = setInterval(() => {
-      console.log('Hello sexy girl');
-    }, 5000);
-
-    // Повертаємо функцію з очищенням інтервалів при виході з компонента
     return () => {
       clearInterval(interval1);
-      clearInterval(interval2);
     };
   }, []);
-
+  const handleValue = (event) => {
+    setValue(event.target.value);
+  };
+  const handleAddValue = () => {
+    setTodo([...todo, value]);
+    setValue('');
+  };
   return (
     <div>
+      <input value={value} onChange={handleValue} />
+      <button onClick={handleAddValue}>Add todo</button>
       <ul>
         {todo.map((todoItem, index) => {
           return (
