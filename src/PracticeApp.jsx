@@ -20,7 +20,9 @@ const PracticeApp = () => {
       handleAddNewTask();
     }
   };
-
+  const handleDelete = function () {
+    console.log('test how work function expression');
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       console.clear();
@@ -50,7 +52,9 @@ const PracticeApp = () => {
       <h1>List of todos:</h1>
       <ul>
         {todo.map((task, index) => (
-          <li key={index}>{task}</li>
+          <li key={index}>
+            {task} <button onClick={handleDelete}>X</button>
+          </li>
         ))}
       </ul>
     </div>
