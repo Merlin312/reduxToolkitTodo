@@ -1,38 +1,42 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const PracticeApp = () => {
   const [todo, setTodo] = useState([]);
   const [value, setValue] = useState('');
-  // const [showButon, setShowButton] = useState(false);
+
   const handleValue = (event) => {
-    event.target.value;
+    setValue(event.target.value);
   };
+
   const handleAddNewTask = () => {
-    setTodo([...todo, value]);
-    setValue('');
+    if (value.trim() !== '') {
+      setTodo([...todo, value]);
+      setValue('');
+    }
   };
+
+  const handlePressEnter = (event) => {
+    if (event.key === 'Enter') {
+      handleAddNewTask();
+    }
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       console.clear();
     }, 30000);
+
     return () => {
       clearInterval(interval);
     };
   }, []);
-  // useEffect(() => {
-  //   const renderInterval = setTimeout(() => {
-  //     setShowButton(true);
-  //     return () => {
-  //       clearTimeout(renderInterval);
-  //     };
-  //   }, 10000);
-  // }, []);
+
   return (
     <div>
-      {/* {showButon && <button>setTimeButton</button>} */}
       <input
         value={value}
         onChange={handleValue}
+        onKeyPress={handlePressEnter}
         placeholder="write your todos"
         style={{
           fontSize: '1.5em',
@@ -40,17 +44,17 @@ const PracticeApp = () => {
           border: '0.1em solid white',
           padding: '0.2em',
           marginRight: '0.5em',
-          c,
         }}
       />
       <button onClick={handleAddNewTask}>Add new task!</button>
       <h1>List of todos:</h1>
       <ul>
-        {todo.map((todos, index) => {
-          return <li key={index}>{todos}</li>;
-        })}
+        {todo.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
       </ul>
     </div>
   );
 };
+
 export default PracticeApp;
