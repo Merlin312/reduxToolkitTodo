@@ -40,9 +40,10 @@ const PracticeApp = () => {
           border: '0.1em solid white',
           padding: '0.2em',
           marginRight: '0.5em',
+          c,
         }}
       />
-      <button onClick={handleAddNewTask}>Add new task</button>
+      <button onClick={handleAddNewTask}>Add new task!</button>
       <h1>List of todos:</h1>
       <ul>
         {todo.map((todos, index) => {
