@@ -4,6 +4,10 @@ import './Modal.css';
 const Modal = ({ isOpen, onClose, deleteAll }) => {
   if (!isOpen) return null;
 
+  const hadleDeleteAll = () => {
+    deleteAll();
+    onClose();
+  };
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -12,7 +16,7 @@ const Modal = ({ isOpen, onClose, deleteAll }) => {
         </button>
         <h2>DELETE All</h2>
         <p>Do you really want to delete all todos?</p>
-        <button onClick={deleteAll}>Yes</button>
+        <button onClick={hadleDeleteAll}>Yes</button>
         <button onClick={onClose}>No</button>
       </div>
     </div>

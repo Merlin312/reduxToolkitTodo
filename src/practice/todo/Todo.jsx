@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 const Todo = ({ deleteAll }) => {
   const [todo, setTodo] = useState([]);
   const [value, setValue] = useState('');
-  // const [del, setDel] = useState(false);
-  const hadleDeleteAll = () => {
-    console.log('handleDelete works');
+
+  deleteAll = () => {
+    setTodo([]);
   };
 
   const handleValue = (event) => {
