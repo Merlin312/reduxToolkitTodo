@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-const Todo = () => {
+const Todo = ({ deleteAll }) => {
   const [todo, setTodo] = useState([]);
   const [value, setValue] = useState('');
+  const [del, setDel] = useState(false);
+  const hadleDeleteAll = () => {
+    console.log('handleDelete works');
+  };
 
   const handleValue = (event) => {
     setValue(event.target.value);
@@ -36,7 +40,10 @@ const Todo = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ marginTop: '1em' }}>
+      <>
+        <button onClick={deleteAll && hadleDeleteAll}>Delete</button>
+      </>
       <input
         value={value}
         onChange={handleValue}
