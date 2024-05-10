@@ -3,6 +3,8 @@ import Modal from './practice/Modal';
 import Todo from './practice/todo/Todo';
 
 const PracticeApp = () => {
+  const [todo, setTodo] = useState([]);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -13,7 +15,7 @@ const PracticeApp = () => {
     setIsModalOpen(false);
   };
   const deleteAllTodo = () => {
-    console.log('delete function work');
+    setTodo([]);
   };
   return (
     <div>
@@ -23,7 +25,7 @@ const PracticeApp = () => {
         deleteAll={deleteAllTodo}
       />
       <button onClick={openModal}>Delete all todos</button>
-      <Todo deleteAll={deleteAllTodo} />
+      <Todo todo={todo} setTodo={setTodo} deleteAll={deleteAllTodo} />
     </div>
   );
 };
